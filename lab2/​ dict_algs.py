@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+
 ivan = {
     "name": "ivan",
     "age": 34,
@@ -33,6 +34,4 @@ def age18(mas):
                 break
     return temp_mass
 
-print("Workers:")
-for worker in age18(emps):
-    print(worker)
+print("Workers:",age18(emps))
