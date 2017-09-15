@@ -1,34 +1,38 @@
 #!/usr/bin/python3
 ivan = {
-"name" : "ivan" ,
-"age" : 34 ,
-"children" : [{
-"name" : "vasja" ,
-"age" : 12 ,
-}, {
-"name" : "petja" ,
-"age" : 10 ,
-}],
+    "name": "ivan",
+    "age": 34,
+    "children": [{
+        "name": "vasja",
+        "age": 12,
+    }, {
+        "name": "petja",
+        "age": 10,
+    }],
 }
 darja = {
-"name" : "darja" ,
-"age" : 41 ,
-"children" : [{
-"name" : "kirill" ,
-"age" : 21 ,
-}, {
-"name" : "pavel" ,
-"age" : 15 ,
-}],
+    "name": "darja",
+    "age": 41,
+    "children": [{
+        "name": "kirill",
+        "age": 21,
+    }, {
+        "name": "pavel",
+        "age": 15,
+    }],
 }
-emps = [ ivan , darja]
+emps = [ivan, darja]
+
 
 def age18(mas):
+    temp_mass = list()
     for worker in mas:
         for child in worker.get('children'):
             if child.get('age') >= 18:
-                print(worker.get('name'))
+                temp_mass.append(worker.get('name'))
                 break
-    return
+    return temp_mass
 
-age18(emps)
+print("Workers:")
+for worker in age18(emps):
+    print(worker)
