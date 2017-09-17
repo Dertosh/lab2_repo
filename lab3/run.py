@@ -5,8 +5,9 @@ from ClientVK import ClientGetFriendsAges
 from gist import Gist
 
 debug = False
+username = "alexdarkstalker98"
 
-get_id=ClientGetID("dertosh").execute()
+get_id = ClientGetID(username).execute()
 friends_ages = ClientGetFriendsAges(get_id).execute()
 
 if debug:
