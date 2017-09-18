@@ -1,7 +1,7 @@
 
 import base_client
 from datetime import datetime
-
+debug = True
 
 class ClientGetID(base_client.BaseClient):
     username = None
@@ -59,11 +59,11 @@ class ClientGetFriendsAges(base_client.BaseClient):
         date_tmp = None
         for friend in self.json_data["response"]:
             date_tmp = friend.get("bdate")
-            if date_tmp == None:
-                continue
-            elif len(date_tmp) < 6:
+            if date_tmp == None or len(date_tmp) < 6:
                 continue
             ages.append( self.calculate_age( datetime.strptime( date_tmp, "%d.%m.%Y"), today))
+            #if ages[-1] == 13:
+            #    print(date_tmp)
         return ages
 
     def get_json(self):

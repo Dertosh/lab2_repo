@@ -1,17 +1,36 @@
 
+import numpy as np
+import matplotlib.mlab as mlab
+import matplotlib.pyplot as plt
+
+
 class Gist ():
     # данные гистаграммы
-    _date = dict()
+    _data = None
+    _data_sorting = dict()
 
     def __init__(self, date):
+        self._data = date
         for number in date:
-            self._date.update({number: self._date.get(number, 0) + 1})
+            self._data_sorting.update({number: self._data_sorting.get(number, 0) + 1})
 
     def get_data(self):
-        return self._date
+        return self._data
 
     def __str__(self):
         str_out = ""
-        for age, stat in self._date.items():
+        for age, stat in self._data_sorting.items():
             str_out += str(age).ljust(4) + str().ljust(stat, '#') + '\n'
         return str_out
+
+    def showHist(self,title,title_x,title_y):
+
+        ax = plt.subplots()
+
+        ax.hist(self._data,range(list(self._data_sorting.keys())[0],list(self._data_sorting.keys())[-1]+1),normed=1)
+        ax.set_title(title)
+        plt.show()
+
+    def showBar(self,title,title_x,title_y):
+        plt.bar(list(self._data_sorting.keys()), self._data_sorting.values(), color='b' )
+        plt.show()

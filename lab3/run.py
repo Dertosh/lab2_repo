@@ -4,7 +4,7 @@ from ClientVK import ClientGetID
 from ClientVK import ClientGetFriendsAges
 from gist import Gist
 
-debug = False
+debug = True
 username = "alexdarkstalker98"
 
 get_id = ClientGetID(username).execute()
@@ -14,4 +14,10 @@ if debug:
     print("ID: ", get_id)
     print("Ages: ", friends_ages)
 
-print(Gist(friends_ages))
+mygist = Gist(friends_ages)
+print(mygist)
+title = "Ages of Users "
+title_x = "Ages"
+title_y = "Users"
+mygist.showHist(title,title_x,title_y)
+mygist.showBar(title,title_x,title_y )
