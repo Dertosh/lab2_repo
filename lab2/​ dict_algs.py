@@ -34,4 +34,5 @@ def age18(mas):
                 break
     return temp_mass
 
-print("Workers:",age18(emps))
+
+print("Workers:", age18(emps))
