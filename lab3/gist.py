@@ -25,10 +25,11 @@ class Gist ():
 
     def showHist(self,title,title_x,title_y):
 
-        ax = plt.subplots()
-
+        fig, ax = plt.subplots()
         ax.hist(self._data,range(list(self._data_sorting.keys())[0],list(self._data_sorting.keys())[-1]+1),normed=1)
         ax.set_title(title)
+        ax.set_xlabel(title_x)
+        ax.set_ylabel(title_y)
         plt.show()
 
     def showBar(self,title,title_x,title_y):

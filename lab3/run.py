@@ -20,4 +20,4 @@ title = "Ages of Users "
 title_x = "Ages"
 title_y = "Users"
 mygist.showHist(title,title_x,title_y)
-mygist.showBar(title,title_x,title_y )
+#mygist.showBar(title,title_x,title_y )
