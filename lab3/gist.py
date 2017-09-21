@@ -17,11 +17,11 @@ class Gist ():
     def get_data(self):
         return self._data
 
-    def __str__(self):
+    def printHist(self):
         str_out = ""
         for age, stat in self._data_sorting.items():
             str_out += str(age).ljust(4) + str().ljust(stat, '#') + '\n'
-        return str_out
+        print( str_out)
 
     def showHist(self,title,title_x,title_y):
 

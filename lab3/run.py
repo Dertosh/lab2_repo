@@ -15,7 +15,7 @@ if debug:
     print("Ages: ", friends_ages)
 
 mygist = Gist(friends_ages)
-print(mygist)
+mygist.printHist()
 title = "Ages of Users "
 title_x = "Ages"
 title_y = "Users"
