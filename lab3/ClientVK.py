@@ -1,7 +1,5 @@
-
 import base_client
 from datetime import datetime
-debug = True
 
 class ClientGetID(base_client.BaseClient):
     username = None

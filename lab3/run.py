@@ -1,10 +1,9 @@
 #!/usr/bin/python3
 
-from ClientVK import ClientGetID
-from ClientVK import ClientGetFriendsAges
+from ClientVK import *
 from gist import Gist
 
-debug = True
+debug = False
 username = "alexdarkstalker98"
 
 get_id = ClientGetID(username).execute()
