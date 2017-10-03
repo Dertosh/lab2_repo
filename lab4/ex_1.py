@@ -9,3 +9,5 @@ goods = [
 ]
 
 # Реализация задания 1
+
+print(field(goods, 'title'))
