@@ -1,9 +1,11 @@
+# -*- coding: utf-8 -*-
+
 import base_client
 from datetime import datetime
 
 class ClientGetID(base_client.BaseClient):
     username = None
-    # метод vk api
+    #метод vk api
     method = "users"
     # GET, POST, ...
     http_method = "get"

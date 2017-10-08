@@ -12,7 +12,11 @@ import random
 
 def field(items, *args):
     assert len(args) > 0
-    # Необходимо реализовать генератор 
+    if args.count == 1:
+        arg = args
+        for value in items:
+            yield value.get( 'title')
+    # Необходимо реализовать генератор
 
 
 # Генератор списка случайных чисел
