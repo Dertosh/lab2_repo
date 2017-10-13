@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 # Итератор для удаления дубликатов
 class Unique(object):
     def __init__(self, items, **kwargs):

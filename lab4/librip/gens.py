@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 import random
 
 
@@ -12,10 +14,15 @@ import random
 
 def field(items, *args):
     assert len(args) > 0
-    if args.count == 1:
-        arg = args
+    if len(args) == 1:
         for value in items:
-            yield value.get( 'title')
+            yield value.get(args[0])
+    else:
+        for value in items:
+            item = dict()
+            for arg in args:
+                item.update({ arg : value[arg]}) #через env выводит поразному
+            yield item
     # Необходимо реализовать генератор
 
 
@@ -24,5 +31,5 @@ def field(items, *args):
 # gen_random(1, 3, 5) должен выдать примерно 2, 2, 3, 2, 1
 # Hint: реализация занимает 2 строки
 def gen_random(begin, end, num_count):
-    pass
+    return list(n for n in random.randint(begin, end))
     # Необходимо реализовать генератор

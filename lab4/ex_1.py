@@ -1,4 +1,6 @@
-#!/usr/bin/env python3
+#!/usr/bin/python3
+# -*- coding: utf-8 -*-
+
 from librip.gens import field
 
 goods = [
@@ -9,5 +11,7 @@ goods = [
 ]
 
 # Реализация задания 1
-
-print(field(goods, 'title'))
+test = field(goods,'title')
+# geyrn c env
+print("Test:")
+print(next(test))
