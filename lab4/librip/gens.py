@@ -16,13 +16,14 @@ def field(items, *args):
     assert len(args) > 0
     if len(args) == 1:
         for value in items:
-            yield value.get(args[0])
+            temp = value[args[0]]
+            if temp is not None:
+                yield temp
     else:
         for value in items:
-            item = dict()
-            for arg in args:
-                item.update({ arg : value[arg]}) #через env выводит поразному
-            yield item
+            temp = {key: value.get(key) for key in args if value[key] is not None}
+            if len(temp) != 0:
+                yield temp
     # Необходимо реализовать генератор
 
 
@@ -30,6 +31,14 @@ def field(items, *args):
 # Пример:
 # gen_random(1, 3, 5) должен выдать примерно 2, 2, 3, 2, 1
 # Hint: реализация занимает 2 строки
+def gen_random_one_string(begin, end, num_count):
+    return list(random.randint(begin, end) for n in range(num_count))
+
 def gen_random(begin, end, num_count):
-    return list(n for n in random.randint(begin, end))
+    mass = list()
+    while num_count != 0:
+        mass.append(random.randint(begin, end))
+        num_count -= 1
+    return mass
+
     # Необходимо реализовать генератор
