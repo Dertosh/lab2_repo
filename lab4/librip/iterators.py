@@ -9,11 +9,37 @@ class Unique(object):
         # Например: ignore_case = True, Aбв и АБВ разные строки
         #           ignore_case = False, Aбв и АБВ одинаковые строки, одна из них удалится
         # По-умолчанию ignore_case = False
-        pass
+        self.iter = len(items)
+        self.items = items
+        self.ignore_case = False
+        if len(kwargs) > 0 :
+            for k, v in kwargs.items():
+                if k == 'ignore_case':
+                    self.ignore_case = v
 
     def __next__(self):
+        if self.ignore_case == True :
+            while len(self.items) > 0:
+                item = self.items.pop() 
+                try: 
+                    self.items.index(item)
+                except ValueError:
+                    return item
+        else:
+            flag = False
+            while len(self.items) > 0:
+                flag = False
+                item = self.items.pop().lower()
+                for temp in self.items: 
+                    if item == temp.lower():
+                        flag = True
+                        break
+                if flag == False:
+                    return item
+        raise StopIteration
+
         # Нужно реализовать __next__    
-        pass
+        
 
     def __iter__(self):
         return self

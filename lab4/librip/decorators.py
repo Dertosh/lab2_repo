@@ -49,4 +49,5 @@ def print_result(func):
                 print(parametr,"=",value)
         else:
             print(result)
+        return result
     return decarted
