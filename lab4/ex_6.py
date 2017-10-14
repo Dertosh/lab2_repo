@@ -3,12 +3,26 @@
 
 import json
 import sys
+import argparse
 from librip.ctxmngrs import timer
 from librip.decorators import print_result
 from librip.gens import field, gen_random
 from librip.iterators import Unique as unique
 
-path = "lab4/data_light.json"
+def create_Parser():
+    parser = argparse.ArgumentParser()
+    parser.add_argument ('-P', '--path', default = 'lab4/data_light.json') #путь к источнику
+    return parser
+
+#проверка аргументов командной строки
+if __name__ == "__main__":
+    if len(sys.argv) < 1:
+        print('Exception:: Недостаточно параметров командной строки')
+        raise SystemExit(1)
+    parser = create_Parser()
+    namespace = parser.parse_args(sys.argv[1:])
+
+path = namespace.path
 
 # Здесь необходимо в переменную path получить
 # путь до файла, который был передан при запуске

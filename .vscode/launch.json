@@ -12,6 +12,7 @@
             "pythonPath": "${config:python.pythonPath}",
             "program": "${file}",
             "cwd": "${workspaceRoot}",
+            "args":["lab4/data_light.json"],
             "env": {},
             "envFile": "${workspaceRoot}/.env",
             "debugOptions": [

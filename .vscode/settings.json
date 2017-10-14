@@ -1,0 +1,14 @@
+{
+    "name": "Python",
+    "type": "python",
+    "request": "launch",
+    "stopOnEntry": true,
+    "program": "${file}",
+    "pythonPath": "/usr/bin/python3",
+    "debugOptions": [
+        "WaitOnAbnormalExit",
+        "WaitOnNormalExit",
+        "RedirectOutput"
+    ],
+    "python.pythonPath": "/usr/bin/python3",
+}

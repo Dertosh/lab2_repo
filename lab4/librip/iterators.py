@@ -11,14 +11,10 @@ class Unique(object):
         # По-умолчанию ignore_case = False
         self.iter = len(items)
         self.items = items
-        self.ignore_case = False
-        if len(kwargs) > 0 :
-            for k, v in kwargs.items():
-                if k == 'ignore_case':
-                    self.ignore_case = v
+        self.ignore_case = kwargs.get('ignore_case')
 
     def __next__(self):
-        if self.ignore_case == True :
+        if self.ignore_case :
             while len(self.items) > 0:
                 item = self.items.pop() 
                 try: 
@@ -34,7 +30,7 @@ class Unique(object):
                     if item == temp.lower():
                         flag = True
                         break
-                if flag == False:
+                if not flag:
                     return item
         raise StopIteration
 
@@ -42,4 +38,5 @@ class Unique(object):
         
 
     def __iter__(self):
+        self.items = iter(self.items)
         return self
