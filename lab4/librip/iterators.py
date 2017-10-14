@@ -14,7 +14,7 @@ class Unique(object):
         self.ignore_case = kwargs.get('ignore_case')
 
     def __next__(self):
-        if self.ignore_case :
+        if self.ignore_case:
             while len(self.items) > 0:
                 item = self.items.pop() 
                 try: 
@@ -38,5 +38,4 @@ class Unique(object):
         
 
     def __iter__(self):
-        self.items = iter(self.items)
         return self
