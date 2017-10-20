@@ -1,3 +1,6 @@
 */__pycache__/
 *.odt#
 *.pyc
+__pycache__
+.idea
+env
