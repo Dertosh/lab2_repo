@@ -16,12 +16,12 @@ def field(items, *args):
     assert len(args) > 0
     if len(args) == 1:
         for value in items:
-            temp = value[args[0]]
+            temp = value.get(args[0])
             if temp is not None:
                 yield temp
     else:
         for value in items:
-            temp = {key: value.get(key) for key in args if value[key] is not None}
+            temp = {key: value.get(key) for key in args if value.get(key) is not None}
             if len(temp) != 0:
                 yield temp
     # Необходимо реализовать генератор
