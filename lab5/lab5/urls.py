@@ -23,4 +23,5 @@ urlpatterns = (
     url(r'^$', IndexBaseClass.as_view(), name="index"),
     url(r'^goods/', get_goods, name="goods"),
     url(r'^product/(?P<product_id>[0-9]+)$', product, name='product_url'),
+    url(r'^goods/add/', set_product, name="set_goods"),
 )

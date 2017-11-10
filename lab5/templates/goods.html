@@ -2,7 +2,7 @@
 {% block title %} Товары {% endblock %}
 {% block body %}
     <div class="row">
-        {% for key, value in goods.items %}
+        {% for product in goods %}
             {% include 'product_privew.html' %}
         {% empty %}
             В данный момент в магазине товары отсутсвуют.

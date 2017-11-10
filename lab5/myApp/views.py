@@ -2,6 +2,7 @@ import json
 
 from django.shortcuts import render
 from django.views import View
+from .models import *
 
 # Create your views here.
 with open("/home/catmen/Документы/lab2_repo/lab5/myApp/static/json/goods.json") as data_file:
@@ -18,8 +19,11 @@ class IndexBaseClass(View):
 
 
 def product(request, product_id):
-    return render(request, "product.html", context=goods_list.get(product_id))
+    return render(request, "product.html", context=Products.objects.only(product_id))
 
 
 def get_goods(request):
-    return render(request, "goods.html", context={"goods" : goods_list})
+    return render(request, "goods.html", context={"goods" : Products.objects.all()})
+
+def set_product(request):
+    pass
