@@ -19,7 +19,7 @@ class IndexBaseClass(View):
 
 
 def product(request, product_id):
-    return render(request, "product.html", context=Products.objects.only(product_id))
+    return render(request, "product.html", context={"product" : Products.objects.get(id=product_id)})
 
 
 def get_goods(request):

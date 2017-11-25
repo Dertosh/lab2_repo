@@ -1,7 +1,14 @@
 {% extends 'base.html' %}
-{% block title %} {{ name }} {% endblock %}
+{% block title %} {{ product.name }} {% endblock %}
 {% block body %}
-    <center>{{ name }}</center>
-    {{ description }}
-    {{ price }}
+    <h1>{{ product.name }}</h1>
+    <p class="center">
+        {% for key, value in product.specifications.items %}
+            {{ key }}: {{ value }}
+            <br>
+        {% empty %}
+            нет характеристик
+        {% endfor %}
+        {{ product.price }}
+    </p>
 {% endblock %}
