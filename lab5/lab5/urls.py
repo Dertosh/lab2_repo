@@ -24,4 +24,6 @@ urlpatterns = (
     url(r'^goods/', get_goods, name="goods"),
     url(r'^product/(?P<product_id>[0-9]+)$', product, name='product_url'),
     url(r'^goods/add/', set_product, name="set_goods"),
+    url(r'^registration/', registration, name="registration"),
+    url(r'^login/', get_goods, name="goods"),
 )

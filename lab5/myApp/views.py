@@ -1,7 +1,10 @@
 import json
 
+from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
+from django import forms
+from django.http import HttpResponseRedirect
 from django.shortcuts import render
-from django.views import View
+from django.views import View, generic
 from .models import *
 
 # Create your views here.
@@ -15,8 +18,7 @@ class IndexBaseClass(View):
         context = {
             "page_name": 'Магазин электроники'
         }
-        return render(request, "index.html",context=context)
-
+        return render(request, "index.html", context=context)
 
 def product(request, product_id):
     return render(request, "product.html", context={"product" : Products.objects.get(id=product_id)})
@@ -27,3 +29,37 @@ def get_goods(request):
 
 def set_product(request):
     pass
+
+
+class SingUpForm(forms.Form):
+    username = forms.CharField(min_length=5, label='Логин')
+    first_name = forms.CharField(label='Имя')
+    last_name = forms.CharField(label='Фамилия')
+    password = forms.CharField(min_length=8, widget=forms.PasswordInput, label='Пароль')
+    password2 = forms.CharField(min_length=8, widget=forms.PasswordInput, label='Повторите ввод')
+    email = forms.EmailField(label='Почта')
+
+    # def save(self, commit=True):
+    #   user = super(RegistrationForm,self).save(commit=False)
+    # f
+    #  return user
+
+
+# class RegistrationForm(UserCreationForm):
+#   helper = FormHelper()
+
+
+def registration(request):
+    print("debug:", request.method, request.POST)
+    if request.method == 'POST':
+        form = SingUpForm(request.POST)
+        if form.is_valid():
+            form.save()
+            print(form.username, "valid")
+            return HttpResponseRedirect('/login/')
+        else:
+            print("else vailed")
+    else:
+        print("else")
+        form = SingUpForm()
+    return render(request, 'registration.html', {'form': form})

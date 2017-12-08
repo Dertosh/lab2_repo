@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+<input type="submit" value="Submit"/>
+{% block body %}
+    <div class="form-group">
+        <form ​method="post" action="">
+            {% csrf_token ​ %}
+            {{ form.as_p }}
+            <input type="submit" value="Submit"/>
+            <!--<button ​type="submit">​ Зарегистрировать​ </button>-->
+        </form>
+    </div>
+{% endblock %}
