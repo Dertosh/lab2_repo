@@ -50,16 +50,13 @@ class SingUpForm(forms.Form):
 
 
 def registration(request):
-    print("debug:", request.method, request.POST)
     if request.method == 'POST':
         form = SingUpForm(request.POST)
         if form.is_valid():
             form.save()
-            print(form.username, "valid")
             return HttpResponseRedirect('/login/')
         else:
             print("else vailed")
     else:
-        print("else")
         form = SingUpForm()
     return render(request, 'registration.html', {'form': form})
