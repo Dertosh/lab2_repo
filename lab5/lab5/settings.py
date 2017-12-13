@@ -38,7 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.sites',
-    'myApp.apps.MyappConfig',
+    'django.contrib.postgres',
+    'myApp.apps.MyAppConfig',
 ]
 
 MIDDLEWARE = [
@@ -78,13 +79,13 @@ WSGI_APPLICATION = 'lab5.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'django_db',
-        'USER': 'test_user',
+        'NAME': 'shop_db',
+        'USER': 'shop_user',
         'PASSWORD': 'qwerty',
         'HOST': '127.0.0.1',
         'PORT': '5432',
-        #        'OPTIONS': {'charset': 'utf8'},
-        #        'TEST_CHARSET': 'utf8',
+        # 'OPTIONS': {'charset': 'utf8'},
+        # 'TEST_CHARSET': 'utf8',
     }
 }
 

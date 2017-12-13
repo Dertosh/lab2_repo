@@ -1,5 +1,5 @@
 from django.contrib.auth.models import (
-    BaseUserManager, AbstractBaseUser,
+    UserManager, AbstractBaseUser,
     AbstractUser)
 from django.contrib.postgres import fields
 from django.db import models
@@ -18,10 +18,11 @@ class UserShop(AbstractUser):
     username = fields.CICharField(max_length=20, unique=True, null=True)
     first_name = fields.CICharField(max_length=50, null=True)
     last_name = fields.CICharField(max_length=50, null=True)
-    email = fields.CIEmailField(null=True)
+    # email = fields.CIEmailField(null=True)
 
+    address = fields.CITextField()
     date_of_birth = fields.DateRangeField(null=True)
-    is_active = models.BooleanField(default=True)
+    # is_active = models.BooleanField(default=True)
 
     USERNAME_FIELD = 'username'
 
